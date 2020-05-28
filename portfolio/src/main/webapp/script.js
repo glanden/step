@@ -16,17 +16,21 @@
  * Changes picture and caption of img.
  */
 function changePicture() {
+  const pictureContainer = document.getElementById('pet-container');
+  const captionContainer = document.getElementById('pet-caption');
   const petPictures =
       ['luna.jpg', 'luna2.jpg', 'freya.jpg'];
 
   // Pick a random picture.
   var rand = Math.floor(Math.random() * petPictures.length);
+  // Make sure you don't get the same picture twice in a row.
+  while(pictureContainer.src==petPictures[rand]){
+      rand = Math.floor(Math.random() * petPictures.length);
+  }
   const picture = petPictures[rand];
-
-  // Add it to the page.
-  const pictureContainer = document.getElementById('pet-container');
+// Add it to the page.
+  
   pictureContainer.src = picture;
-  const captionContainer = document.getElementById('pet-caption');
   if(rand == 2){
       captionContainer.innerText = "Here's my dog";
   }
