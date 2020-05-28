@@ -13,16 +13,24 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Changes picture and caption of img.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+function changePicture() {
+  const petPictures =
+      ['luna.jpg', 'luna2.jpg', 'freya.jpg'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  // Pick a random picture.
+  var rand = Math.floor(Math.random() * petPictures.length);
+  const picture = petPictures[rand];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const pictureContainer = document.getElementById('pet-container');
+  pictureContainer.src = picture;
+  const captionContainer = document.getElementById('pet-caption');
+  if(rand == 2){
+      captionContainer.innerText = "Here's my dog";
+  }
+  else{
+      captionContainer.innerText = "Here's my cat";
+  }
 }
