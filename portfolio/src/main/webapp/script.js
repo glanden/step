@@ -21,8 +21,10 @@ function changePicture() {
   const petPictures =
       ['/images/IMG_7208.JPG', '/images/IMG_7209.JPG'];
 
+  const id_index = 65;
+  const img_1_id = 9;
   // Make sure you don't get the same picture twice in a row.
-  if((pictureContainer.src).charAt(65)==9){
+  if((pictureContainer.src).charAt(id_index)==img_1_id){
       pictureContainer.src = petPictures[0];
       captionContainer.innerText = "Here's my dog";
   }
