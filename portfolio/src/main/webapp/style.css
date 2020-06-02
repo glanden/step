@@ -3,7 +3,56 @@
   margin-right: auto;
   width: 650px;
 }
-
-#greeting-container {
-  margin-top: 20px;
+#caption{
+    margin-top: -20px;
+}
+div{
+    text-align: center;
+}
+h1{
+    font-size: 30pt;
+}
+h1 caption{
+    margin-top: 20px;
+}
+.right{
+    float: right;
+    margin-bottom: -60px;
+}
+.left{
+    float: left;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+table{
+    margin: 20px;
+    margin-top: 200px;
+}
+button{
+    border-radius: 4px;
+    font-weight: bold;
+}
+th{
+    font-size: 12pt;
+}
+td img{
+    width: 200px;
+    height: 200px;
+}
+p{
+    font-size: 12pt;
+    margin-top: -60px;
+    font-weight: normal;
+}
+.left h2{
+    padding: 18px;
+}
+h1, h2, p, table {
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+    padding: 8px;
+    width: 60%;
 }
