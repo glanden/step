@@ -12,6 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
+/**
+ * Fetches message from the server and adds it to the DOM.
+ */
+function getData() {
+  console.log('Fetching data.');
+
+  // The fetch() function returns a Promise because the request is asynchronous.
+  const responsePromise = fetch('/data');
+
+  // When the request is complete, pass the response into handleResponse().
+  responsePromise.then(addQuoteToDom);
+}
+/** Adds a quote to the DOM. */
+function addQuoteToDom(quote) {
+  console.log('Adding quote to dom: ' + quote);
+
+  const quoteContainer = document.getElementById('quote-container');
+  quoteContainer.innerText = quote;
+}
+
 /**
  * Changes picture and caption of img.
  */
@@ -21,7 +42,7 @@ function changePicture() {
   const petPictures =
       ['/images/IMG_7208.JPG', '/images/IMG_7209.JPG'];
 
-  const id_index = 65;
+  const id_index = 65; 
   const img_1_id = 9;
   // Make sure you don't get the same picture twice in a row.
   if((pictureContainer.src).charAt(id_index)==img_1_id){
