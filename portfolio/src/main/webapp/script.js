@@ -20,10 +20,22 @@ function getData() {
   console.log('Fetching data.');
 
   // The fetch() function returns a Promise because the request is asynchronous.
-  const responsePromise = fetch('/data');
+  const responsePromise = fetch('/data').then(response => response.json())
+  .then((comments) => { 
+  const commentsListElement = document.getElementById('server-comments-container');
+    commentsListElement.innerHTML = '';
+    commentsListElement.appendChild(
+        createListElement('Comments: ' + comments));
+});
 
   // When the request is complete, pass the response into handleResponse().
   responsePromise.then(addQuoteToDom);
+}
+/** Creates a list element that displays comment. */
+function createListElement(comment) {
+  const liElement = document.createElement('li');
+  liElement.innerText = comment;
+  return liElement;
 }
 /** Adds a quote to the DOM. */
 function addQuoteToDom(quote) {
