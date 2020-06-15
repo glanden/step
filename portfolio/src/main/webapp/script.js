@@ -18,13 +18,16 @@
  */
 function getData() {
   console.log('Fetching data.');
-  const languageCode = document.getElementById('language').value;
   // The fetch() function returns a Promise because the request is asynchronous.
-  const responsePromise = fetch('/list-comments?language='+languageCode).then(response => response.json())
-  .then((comments) => { 
+  const responsePromise = 
+    fetch('/list-comments?language='+document.getElementById('language').value)
+    .then(response => response.json())
+    .then((comments) => { 
   const commentsListElement = document.getElementById('server-comments-container');
   commentsListElement.innerHTML = '';
   for(let i = 0; i<comments.length; i++){
+    commentsListElement.appendChild(
+    createListElement(comments[i]));
     commentsListElement.appendChild(
     createListElement(comments[i]));
   }
@@ -53,9 +56,10 @@ function changePicture() {
   const petPictures =
       ['/images/IMG_7208.JPG', '/images/IMG_7209.JPG'];
 
-  const id_index = 65; 
+  const id_index = 57;
   const img_1_id = 9;
   // Make sure you don't get the same picture twice in a row.
+  console.log(pictureContainer.src);
   if((pictureContainer.src).charAt(id_index)==img_1_id){
       pictureContainer.src = petPictures[0];
       captionContainer.innerText = "Here's my dog";
