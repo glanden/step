@@ -24,8 +24,7 @@ function getData() {
   .then((comments) => { 
   const commentsListElement = document.getElementById('server-comments-container');
   commentsListElement.innerHTML = '';
-  var i;
-  for(i = 0; i<comments.length; i++){
+  for(let i = 0; i<comments.length; i++){
     commentsListElement.appendChild(
     createListElement(comments[i]));
   }
