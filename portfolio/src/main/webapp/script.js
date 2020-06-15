@@ -26,8 +26,13 @@ function getData() {
   const commentsListElement = document.getElementById('server-comments-container');
   commentsListElement.innerHTML = '';
   for(let i = 0; i<comments.length; i++){
+<<<<<<< HEAD
       commentsListElement.appendChild(
       createListElement(comments[i]));
+=======
+    commentsListElement.appendChild(
+    createListElement(comments[i]));
+>>>>>>> 710ff85ca8e70590c917827bd9487ec24794382b
   }
   });
 }
