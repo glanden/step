@@ -29,12 +29,12 @@ public class ListServlet extends HttpServlet {
     String languageCode = request.getParameter("language");
     List<String> comments = new ArrayList<String>();
     for (Entity entity : results.asIterable()) {
-      String title = (String) entity.getProperty("text");
-      Translate translate = TranslateOptions.getDefaultInstance().getService();
-    Translation translation =
+        String title = (String) entity.getProperty("text");
+        Translate translate = TranslateOptions.getDefaultInstance().getService();
+        Translation translation =
         translate.translate(title, Translate.TranslateOption.targetLanguage(languageCode));
-    String comment = translation.getTranslatedText();
-      comments.add(comment);
+        String comment = translation.getTranslatedText();
+        comments.add(comment);
     }
 
     Gson gson = new Gson();
