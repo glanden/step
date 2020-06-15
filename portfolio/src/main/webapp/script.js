@@ -20,19 +20,16 @@ function getData() {
   console.log('Fetching data.');
   // The fetch() function returns a Promise because the request is asynchronous.
   const responsePromise = 
-      fetch('/list-comments?language='+document.getElementById('language').value)
-      .then(response => response.json())
-      .then((comments) => { 
+    fetch('/list-comments?language='+document.getElementById('language').value)
+    .then(response => response.json())
+    .then((comments) => { 
   const commentsListElement = document.getElementById('server-comments-container');
   commentsListElement.innerHTML = '';
   for(let i = 0; i<comments.length; i++){
-<<<<<<< HEAD
-      commentsListElement.appendChild(
-      createListElement(comments[i]));
-=======
     commentsListElement.appendChild(
     createListElement(comments[i]));
->>>>>>> 710ff85ca8e70590c917827bd9487ec24794382b
+    commentsListElement.appendChild(
+    createListElement(comments[i]));
   }
   });
 }
